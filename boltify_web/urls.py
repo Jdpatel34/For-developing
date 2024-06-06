@@ -18,9 +18,10 @@ from django.contrib import admin
 # from . import views
 from django.urls import include, path
 from rest_framework import routers
+import store
 from store import views
-from store.viewsets.product import ProductsViewSet
-from store.viewsets.user import LoginUserViewSet, UserViewSet
+# from store.viewsets.product import ProductsViewSet
+# from store.viewsets.user import LoginUserViewSet, UserViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -28,17 +29,15 @@ from rest_framework_simplejwt.views import (
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register('login', viewset=LoginUserViewSet)
-router.register('products', viewset=ProductsViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('index/', views.index, name='index'),
+    path('', views.index, name='index'),
+    path('api/', include('store.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
