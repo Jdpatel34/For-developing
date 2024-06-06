@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Item</title>
+</head>
+<body>
+    <!-- username = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    is_admin = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    mobile_no = models.CharField(max_length=15)
+    address = models.CharField(max_length=200)
+    country = models.CharField(max_length=15, default='United Kindom')
+    state = models.CharField(max_length=15)
+    postcode = models.CharField(max_length=10) -->
+    <h1>Create Item</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="first_name">first_name:</label>
+        <input type="text" id="first_name" name="first_name"><br><br>
+        <label for="last_name">last_name:</label>
+        <input type="text" id="last_name" name="last_name"><br><br>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="password">password:</label>
+        <input type="text" id="password" name="password"><br><br>
+        <label for="address">address:</label>
+        <textarea id="address" name="address"></textarea><br><br>
+        <label for="mobile_no">mobile_no:</label>
+        <input type="text" id="mobile_no" name="mobile_no"><br><br>
+        <label for="state">state:</label>
+        <input type="text" id="state" name="state"><br><br>
+        <label for="country">country:</label>
+        <input type="text" id="country" name="country"><br><br>
+        <label for="postcode">postcode:</label>
+        <input type="text" id="postcode" name="postcode"><br><br>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>
