@@ -5,9 +5,9 @@ from store.viewsets.product import ProductsViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'login', LoginUserViewSet)
-router.register(r'products', ProductsViewSet)
+router.register('users', UserViewSet)
+router.register('login', LoginUserViewSet)
+router.register('products', ProductsViewSet)
 # router.register(r'users', UserViewSet)
 # router.register(r'users', UserViewSet)
 

@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.http import JsonResponse
 import requests
+from .models import Products
 
 # Create your views here.
 
@@ -73,3 +74,12 @@ def index(request):
             return JsonResponse(response.json())  # Return error response
 
     return render(request, 'index.html')
+
+
+# store/views.py
+
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Products, pk=product_id)
+
+    return render(request, 'product.html', {'product': product})
